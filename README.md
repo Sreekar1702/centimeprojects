@@ -4,6 +4,7 @@
 
 _Service1 MainApp:_ 
 @GetMapping - /healthCheck - Returns "UP" is service is running.
+
 @PostMapping - /concatResponse - Hits service2 and service2 and returns concatenated response from service2 + service3.
                   
 _Service2 helloservice:_  @GetMapping - /hello - Returns "Hello" is service is running.   
@@ -48,6 +49,7 @@ Eureka:
 
 Service name : database - 
 @GetMapping - /getUser/{id} - To find details by id
+
 @GetMapping - /getAllUsers - return json string with nested object structure.
 
 Use cases for task2:
