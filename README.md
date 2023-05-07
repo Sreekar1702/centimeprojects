@@ -25,16 +25,20 @@ Created docker images for each service and pushed to dockerhub.
 Created EC2 instances and deployed docker images by pulling them from dockerhub on the instances in VPC and added inbound rule in Security group for exposing ports of respective services.
 
 Service1 GetMethod:(service status)
+
 <img width="944" alt="image" src="https://user-images.githubusercontent.com/87267481/236699020-cb04afc9-3970-4c39-87b6-35da81701c3f.png">
 
 Service PostMethod:(concat response from service2 and service3)
+
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236699246-e9e3ee3c-bcc1-4386-928e-ad13588fddd6.png">
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236699141-f938fae1-61d3-450b-adee-4904e2d161a1.png">
 
 Zipkin:
+
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236699258-5c2c8666-1984-4244-9b39-103827a2f935.png">
 
 Eureka:
+
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236699287-47b76fcc-d1ab-4fa4-a4af-c75aeea9be5f.png">
 
 ****Task2****
