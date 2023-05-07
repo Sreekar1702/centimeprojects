@@ -60,8 +60,10 @@ Above logic keeps updating values in _NestedOutputWithSubclasses_ which has name
 Ignoring jsonProperties of null objects.
 
 @GetMapping - return nested json object:
+
 **_[{"Name":"Warrior","Sub Classes":[{"Name":"Fighter"},{"Name":"Paladin"},{"Name":"Ranger"}]},{"Name":"Wizard","Sub Classes":[{"Name":"Mage"},{"Name":"Specialist wizard"}]},{"Name":"Priest","Sub Classes":[{"Name":"Cleric"},{"Name":"Druid"},{"Name":"Priest of specific mythos"}]},{"Name":"Rogue","Sub Classes":[{"Name":"Thief","Sub Classes":[{"Name":"Assassin"}]},{"Name":"Bard"}]}]**
 _
+
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236700234-a17436ce-2523-49c1-9872-51ba78f20814.png">
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236700246-8b9862b1-a40e-4be4-999f-33b66e6bf888.png">
 <img width="959" alt="image" src="https://user-images.githubusercontent.com/87267481/236700276-cac1fd9c-4b21-44b2-a002-86528fdf75d6.png">
