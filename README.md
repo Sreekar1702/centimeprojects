@@ -62,6 +62,3 @@ _
 @GetMapping - find by id
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236700134-6cd2d970-e876-438e-a651-39699a33af79.png">
 
-
-
-
