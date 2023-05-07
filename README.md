@@ -41,6 +41,7 @@ Eureka:
 
 <img width="960" alt="image" src="https://user-images.githubusercontent.com/87267481/236699287-47b76fcc-d1ab-4fa4-a4af-c75aeea9be5f.png">
 
+
 ****Task2****
 
 Service name : database - @GetMapping - /getUser/{id} - To find details by id
