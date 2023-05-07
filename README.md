@@ -4,13 +4,15 @@
 
 _Service1 MainApp:_ @GetMapping - /healthCheck - Returns "UP" is service is running.
                   @PostMapping - /concatResponse - Hits service2 and service2 and returns concatenated response from service2 + service3.
-_Service2 helloservice:_ @GetMapping - /hello - Returns "Hello" is service is running.   
+_Service2 helloservice:_ @GetMapping - /hello - Returns "Hello" is serv
+ice is running.   
 _Service3 concatstringsserver:_ @PostMapping - /concatuser - If input contains "name and surname" returns a concatened string with "name surname".
                                If any parameter is null/empty in name/surname, throws exception as "name/surmae is null"
 
 _ConfigServer:_ Eureka server to host eureka on 8761 port.
 
-Problem staments and resolution for Task1:
+**Problem staments and resolution for Task1:**
+
 _Included Error Handling:_  CustomExceptionhandling while processing request and GenricExceptionhandler which triggers when input data is null/empty, validation of response from servers.
 _Logs tracing:_ Used zipkin for tracking request based on traceid/servicename , distributed tracing, time taken by each request to process.
 _Service Discovery:_ Created Eureka Server for service discovery using service names to communicate between two apis.
