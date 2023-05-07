@@ -3,29 +3,29 @@
 ****Task1****
 
 _Service1 MainApp:_ 
-@GetMapping - /healthCheck - Returns "UP" is service is running.
+@GetMapping - /healthCheck - Returns "UP" , if service is running.
 
-@PostMapping - /concatResponse - Hits service2 and service2 and returns concatenated response from service2 + service3.
+@PostMapping - /concatResponse - Hits service2 and service3 and returns concatenated response from service2 + service3.
                   
-_Service2 helloservice:_  @GetMapping - /hello - Returns "Hello" is service is running.   
+_Service2 helloservice:_  @GetMapping - /hello - Returns "Hello", if service2 is running.   
 
-_Service3 concatstringsserver:_ @PostMapping - /concatuser - If input contains "name and surname" returns a concatened string with "name surname".
+_Service3 concatstringsserver:_ @PostMapping - /concatuser - If input contains "name and surname" , returns a concatened string with "name surname".
                                  If any parameter is null/empty in name/surname, throws exception as "name/surmae is null"
 
 _ConfigServer:_ Eureka server to host eureka on 8761 port.
 
 **Problem staments and resolution for Task1:**
 
-_Included Error Handling:_  CustomExceptionhandling while processing request and GenricExceptionhandler which triggers when input data is null/empty, validation of response from servers.
+_Included Error Handling:_  Implemented CustomExceptionhandling while processing request and GenricExceptionhandler which triggers when input data in request is null/empty, validation of response from servers.
 
 _Logs tracing:_ Used zipkin for tracking request based on traceid/servicename , distributed tracing, time taken by each request to process.
 
-_Service Discovery:_ Created Eureka Server for service discovery using service names to communicate between two apis.
+_Service Discovery:_ Created Eureka Server for service discovery using service names to communicate between two API's.
 Swagger UI has been included in order to help visualize and interact with the resources of service1.
 
 **Deployment in AWS:**
 Created docker images for each service and pushed to dockerhub.
-Created EC2 instances and deployed docker images by pulling them from dockerhub on the instances in VPC and added inbound rule in Security group for exposing ports of respective services.
+Created EC2 instances and deployed docker images by pulling them from dockerhub on the ec2 instances in VPC and added inbound rules in Security group to allow network traffic in between services.
 
 Service1 GetMethod:(service status)
 
@@ -47,21 +47,23 @@ Eureka:
 
 ****Task2****
 
-Service name : database - 
+Service name : database
 @GetMapping - /getUser/{id} - To find details by id
 
 @GetMapping - /getAllUsers - return json string with nested object structure.
 
 Use cases for task2:
 
-1. Created H2 database on 8088 port, DB name: userdb, username=sa,password=password. 
-2. By using DatabaseInitializer class, when h2 database is started it will insert data into database using StartupQueries.sql file in resources folder.
+1. Used H2 database on 8088 port, DB name: userdb, username=sa,password=password. 
+2. By using DatabaseInitializer class, when application and h2 database is started it will insert data into database using StartupQueries.sql file from resources folder.
 3. Implemented Custom exception handling when user details are not found/ exception while fetching details from database/ while processing.
-4. Implemented @LogMethodParam Before and Afterrunning api call.
-5. Used @ApiOperation for method level description.
+4. Implemented @LogMethodParam Before and Afterrunning a api call.
+5. Used @ApiOperation for java docs method level information.
 6. Implemented a datastructure to generate below json response :
 
-The _NestedOutput_ class is defined with id, parentId,colour and name. The _DFSGetNestedOutputHelper_ class takes a list of NestedOutput objects in its constructor and builds a map of parent-child relationships based on the parentId property. The _getHierarchy_ method recursively updates the hierarchy of NestedOutput objects using a depth-first traversal and the _updateHierarchy_ method simply calls this method for each root node in the map (i.e. nodes with a parentId of 0).
+The _NestedOutput_ class is defined with id, parentId,colour and name. The _DFSGetNestedOutputHelper_ class takes a list of NestedOutput objects in its constructor and builds a map of parent-child relationships based on the parentId property. 
+
+The _getHierarchy_ method recursively updates the hierarchy of _NestedOutput_ objects using a **depth-first traversal**__ and the _updateHierarchy_ method calls this method for each record in the map (i.e. records with a parentId of 0).
 Above logic keeps updating values in _NestedOutputWithSubclasses_ which has name("name") and Sub Classes ("NestedOutputWithSubclasses"), this class is returned as response.
 Ignoring jsonProperties of null objects.
 
