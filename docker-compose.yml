@@ -1,0 +1,36 @@
+version: '3'
+services:
+  configserver:
+    image: 'centime/configserver:latest'
+    container_name: configserver
+    ports:
+      - '8761:8761'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http:/host.docker.internal:8761/eureka
+  concatstringsserver:
+    image: 'centime/concatstrings:latest'
+    container_name: concatstringsserver
+    ports:
+      - '9003:9003'
+    depends_on:
+      - configserver
+    environment:
+      - EUREKA_SERVER_ADDRESS=http:/host.docker.internal:8761/eureka
+  helloservice:
+    image: 'centime/helloservice:latest'
+    container_name: helloservice
+    ports:
+      - '9005:9005'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http:/host.docker.internal:8761/eureka
+    depends_on:
+      - configserver
+  mainapp:
+    image: 'centime/mainapp:latest'
+    container_name: mainapp
+    ports:
+      - '9001:9001'
+    environment:
+      - EUREKA_SERVER_ADDRESS=http:/host.docker.internal:8761/eureka
+    depends_on:
+      - configserver
